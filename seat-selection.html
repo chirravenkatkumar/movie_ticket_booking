@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="seat-selection">
+    <header>
+        <h1>Select Your Seats</h1>
+        <h2 id="movie-theater-info"></h2>
+    </header>
+    <main>
+        <div class="seating-chart">
+            <!-- Seats will be dynamically generated here -->
+        </div>
+        <button onclick="confirmBooking()">Confirm and Pay</button>
+    </main>
+    <script>
+        let selectedSeats = [];
+
+// Load seats dynamically and manage seat selection
+function loadSeats() {
+  const seatingChart = document.querySelector('.seating-chart');
+
+  // Example of loading a predefined set of seats
+  const seats = Array(30).fill('available'); // Simplified example
+
+  seats.forEach((status, index) => {
+    const seatElement = document.createElement('div');
+    seatElement.className = `seat ${status}`;
+    seatElement.dataset.seat = `Seat ${index + 1}`;
+    seatElement.onclick = () => toggleSeatSelection(seatElement);
+    seatingChart.appendChild(seatElement);
+  });
+
+  // Display selected movie and theater information
+  document.querySelector("#movie-theater-info").textContent = "Movie Name - Theater Name - Show Time"; // Replace with actual details
+}
+
+function toggleSeatSelection(seatElement) {
+  if (seatElement.classList.contains('available')) {
+    seatElement.classList.toggle('selected');
+    const seatNumber = seatElement.dataset.seat;
+
+    if (seatElement.classList.contains('selected')) {
+      selectedSeats.push(seatNumber);
+    } else {
+      selectedSeats = selectedSeats.filter(seat => seat !== seatNumber);
+    }
+  }
+}
+
+function confirmBooking() {
+  if (selectedSeats.length > 0) {
+    // Store selected seats in sessionStorage (or any other state management)
+    sessionStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+
+    // Redirect to confirmation page
+    window.location.href = 'confirmation.html';
+  } else {
+    alert('Please select at least one seat.');
+  }
+}
+
+// Initialize seat selection page
+document.addEventListener('DOMContentLoaded', loadSeats);
+
+    </script>
+</body>
+</html>

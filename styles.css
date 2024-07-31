@@ -1,0 +1,93 @@
+body, html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+  }
+  
+  header input {
+    padding: 10px;
+    margin: 0 5px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .movie-list, .cast-list, .theater-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .movie-list a, .cast-member, .theater-list a {
+    margin: 10px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .movie-list a img, .cast-member img {
+    max-width: 100px;
+    border-radius: 10px;
+  }
+  
+  .cast-member {
+    max-width: 150px;
+  }
+  
+  .seating-chart {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+  
+  .seat {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .seat.available:hover {
+    background-color: #6c6;
+  }
+  
+  .seat.reserved {
+    background-color: #f66;
+  }
+  
+  .ticket-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
